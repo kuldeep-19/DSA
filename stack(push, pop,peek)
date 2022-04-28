@@ -1,0 +1,53 @@
+#include<stdio.h>
+#include<conio.h>
+#define size 100
+void push(int stack[],int *top,int item);
+int pop(int stack[],int *top);
+int peek(int stack[],int top);
+
+void main()
+{
+int top=1,temp;
+int stack[size];
+int choice,item;
+while(1)
+{
+printf("\nEnter the choice  number \n");
+scanf("%d",&choice);
+switch(choice)
+{
+case 1:
+scanf("%d",&item);
+push(stack,&top,item);
+printf("\nItem Pushed");
+break;
+case 2:
+item=pop(stack,&top);
+printf("\nPoped item from stack is %d",item);
+break;
+case 3:
+item=peek(stack,top);
+
+printf("\n%d",item);
+break;
+default:
+exit(0);
+}
+}
+}
+void push(int stack[],int *top,int item)
+{
+*top=*top+1;
+stack[*top]=item;
+}
+int pop(int stack[],int *top)
+{
+int item;
+item=stack[*top];
+*top=*top-1;
+return (item);
+}
+int peek(int stack[],int top)
+{
+return(stack[top]);
+}
